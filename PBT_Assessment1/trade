@@ -1,0 +1,33 @@
+from tkinter import ttk
+
+import tkinter as tk
+
+import sqlite3
+
+def connect():
+
+    con1 = sqlite3.connect('MarketExchange.db')
+
+    cur1 = con1.cursor()
+
+    con1.commit()
+
+    con1.close()
+
+
+def View():
+
+    con1 = sqlite3.connect('MarketExchange.db')
+
+    cur1 = con1.cursor()
+
+    cur1.execute("SELECT * FROM trades")
+
+    rows = cur1.fetchall()    
+
+    for row in rows:
+
+        print(row) 
+   
+
+    con1.close()
